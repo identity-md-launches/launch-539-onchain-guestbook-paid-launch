@@ -1,0 +1,22 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "LaunchToken",
+    "name": "Guestbook Token",
+    "symbol": "GUEST",
+    "decimals": 18
+  },
+  "contracts": [
+    {
+      "contract": "Guestbook",
+      "constructorArgs": ["$token"]
+    }
+  ],
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "notes": "LaunchToken has no constructor arguments. Guestbook is configured at deployment with the launch token and has no owner or initialization calls. To sign, callers first approve Guestbook to spend at least 10 GUEST. Each successful sign transfers 10 GUEST (10000000000000000000 base units) to 0x000000000000000000000000000000000000dEaD; this burn does not reduce ERC-20 totalSupply. Messages are limited to 280 bytes, including empty messages. Entries store the caller, message and block timestamp and are readable by zero-based index through entries(index); entryCount() returns the count. The factory supplies the LP, MerkleDistributor and initialization-only pool guard. Existing tests cover token behavior, deployment, signing, byte limits, payment failures, reentrancy and accounting invariants."
+}
